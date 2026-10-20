@@ -49,8 +49,9 @@ On the test set, Degree 2 achieved an MAE of approximately 3.0202 hours, while D
 
 ### 13. How did regularization affect performance and coefficient magnitudes?
 
-Regularization penalizes large coefficients to help reduce overfitting. Ridge uses an L2 penalty, which generally shrinks coefficients toward zero. Lasso uses an L1 penalty, which can shrink some coefficients all the way to zero.
+Ridge and Lasso Regression performed almost identically to Linear Regression. Ridge achieved an MAE of approximately 2.9060 hours, while Lasso achieved approximately 2.9071 hours. Their RMSE and R² values were also nearly identical to those of Linear Regression.
 
+Ridge uses an L2 penalty to shrink coefficients toward zero, while Lasso uses an L1 penalty that can shrink some coefficients to zero. In this experiment, regularization had very little effect on predictive performance. The exact changes in coefficient magnitudes would need to be confirmed by comparing the fitted coefficients.
 ### 14. Why is scaling included in the Ridge/Lasso pipeline?
 
 Scaling puts numerical features on comparable scales before regularization. This matters because Ridge and Lasso penalize model coefficients, and features with different numerical scales can otherwise be affected unevenly. The pipeline includes feature scaling so that the scaling parameters are learned from the training data rather than from the entire dataset. During cross-validation, the scaler is fitted separately within each training fold, helping prevent data leakage.
